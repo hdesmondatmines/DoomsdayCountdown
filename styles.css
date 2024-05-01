@@ -9,43 +9,29 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
-/* Additional styling */
-.clock {
-    font-size: 2em;
-    margin-bottom: 20px;
-}
 
 #your-clock {
+    font-size: 24px;
+    color: #ff6347; /* Red color for emphasis */
+    padding: 20px;
     margin: 20px;
+    border: 1px solid #fff; /* Adds a border to make the clock visible */
 }
 
 .title {
     font-size: 28px;
-    color: #ff6347; /* A shade of red for the title for added impact */
+    margin-bottom: 10px;
 }
 
 .name {
     font-size: 20px;
-    color: #9acd32; /* A greenish-yellow, to stand out on the dark background */
+    margin-bottom: 20px;
 }
 
 .description {
-    margin-top: 20px;
-    font-size: 16px;
-    color: #dcdcdc; /* Light gray for readability */
     width: 80%;
     max-width: 600px;
-}
-
-.flip-clock-wrapper {
-    color: #ffffff;  /* Ensure digits are white */
-    text-align: center;
-}
-
-.flip-clock-divider .flip-clock-label {
-    color: #ffffff;  /* Labels like Hours, Minutes styled to be visible */
-}
-
-.flip-clock-dot {
-    background: #ffffff;
+    margin-top: 20px;
+    font-size: 16px;
+    line-height: 1.4;
 }

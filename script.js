@@ -1,27 +1,34 @@
 $(document).ready(function() {
     var clock = $('#your-clock').FlipClock({
-        clockFace: 'DailyCounter',
-        autoStart: false
+        clockFace: 'YearlyCounter', // Changes to show years
+        autoStart: false,
+        countdown: true
     });
 
-    // Set initial time, just as an example, adjust as needed
-    clock.setTime(31536000); // roughly 365 days in seconds
-    clock.setCountdown(true);
+    // Set initial time, here example is roughly 5 years in seconds
+    var fiveYearsInSeconds = 5 * 365 * 24 * 60 * 60;
+    clock.setTime(fiveYearsInSeconds);
     clock.start();
 
-    function randomAdjustment() {
-        let randomChange = Math.random() * 10000 - 5000; // Change range
-        let currentTime = clock.getTime().time + randomChange;
-        if (Math.random() > 0.95) { // 5% chance to hit zero and flash
-            currentTime = 0;
-            $('#your-clock').css('color', 'red');
-            setTimeout(function() {
-                $('#your-clock').css('color', '');
-                clock.setTime(31536000); // reset to initial time after flashing
-            }, 3000); // flash for 3 seconds
+    function randomizeCountdown() {
+        if (Math.random() < 0.1) {  // Approximately 10% chance to trigger the random change
+            let randomTime = Math.floor(Math.random() * fiveYearsInSeconds);
+            clock.setTime(randomTime);
         }
-        clock.setTime(currentTime > 0 ? currentTime : 0);
     }
 
-    setInterval(randomAdjustment, 5000); // adjust every 5 seconds
+    // Function to ensure the seconds are always showing as two digits
+    function adjustClockDisplay() {
+        $('.flip').each(function(){
+            var digit = $(this).find('.flip-clock-active').text();
+            if (digit.length < 2) {
+                $(this).find('.flip-clock-active').text('0' + digit);
+            }
+        });
+    }
+
+    setInterval(function() {
+        adjustClockDisplay();  // Adjust the display
+        randomizeCountdown();  // Possibly randomize the countdown
+    }, 1000); // Every second check for adjustment and randomization
 });

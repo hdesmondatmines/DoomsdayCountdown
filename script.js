@@ -21,5 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('your-clock').textContent = formattedTime;
     }
 
-    setInterval(updateCountdown, 1000);
+    updateCountdown(); // Update immediately on load
+    setInterval(updateCountdown, 1000); // Then update every second
 });

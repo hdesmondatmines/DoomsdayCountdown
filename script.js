@@ -4,7 +4,7 @@ $(document).ready(function() {
         autoStart: false,
         countdown: true
     });
-
+ 
     // Set initial time, here example is roughly 5 years in seconds
     var fiveYearsInSeconds = 5 * 365 * 24 * 60 * 60;
     clock.setTime(fiveYearsInSeconds);

@@ -1,34 +1,32 @@
 $(document).ready(function() {
     var clock = $('#your-clock').FlipClock({
-        clockFace: 'YearlyCounter', // Changes to show years
+        clockFace: 'DailyCounter', // Keeps it to days, hours, minutes, and seconds
         autoStart: false,
-        countdown: true
+        countdown: true,
+        language: 'english'
     });
- 
-    // Set initial time, here example is roughly 5 years in seconds
-    var fiveYearsInSeconds = 5 * 365 * 24 * 60 * 60;
-    clock.setTime(fiveYearsInSeconds);
+
+    // Calculate seconds for 5 years (approximation)
+    var totalSeconds = 5 * 365 * 24 * 60 * 60;
+    clock.setTime(totalSeconds);
     clock.start();
 
+    // Randomize function adjusted for clarity
     function randomizeCountdown() {
-        if (Math.random() < 0.1) {  // Approximately 10% chance to trigger the random change
-            let randomTime = Math.floor(Math.random() * fiveYearsInSeconds);
+        if (Math.random() < 0.05) {  // Adjusted probability to 5%
+            let randomTime = Math.floor(Math.random() * totalSeconds);
             clock.setTime(randomTime);
         }
     }
 
-    // Function to ensure the seconds are always showing as two digits
-    function adjustClockDisplay() {
-        $('.flip').each(function(){
-            var digit = $(this).find('.flip-clock-active').text();
-            if (digit.length < 2) {
-                $(this).find('.flip-clock-active').text('0' + digit);
+    // Ensure all displays are two digits
+    setInterval(function() {
+        $('.flip-clock-wrapper ul').each(function () {
+            var digits = $(this).find('li.flip-clock-active');
+            if (digits.text().length < 2) {
+                digits.text('0' + digits.text());
             }
         });
-    }
-
-    setInterval(function() {
-        adjustClockDisplay();  // Adjust the display
-        randomizeCountdown();  // Possibly randomize the countdown
-    }, 1000); // Every second check for adjustment and randomization
+        randomizeCountdown();
+    }, 5000); // Adjust timing as needed
 });

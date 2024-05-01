@@ -1,7 +1,24 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#your-clock {
+    margin: 20px;
+}
+
+.title {
+    font-size: 28px;
+    color: #333;
+}
+
+.name {
+    font-size: 20px;
+    color: #555;
 }

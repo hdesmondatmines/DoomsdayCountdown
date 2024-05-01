@@ -31,3 +31,16 @@ body {
     width: 80%;
     max-width: 600px;
 }
+
+.flip-clock-wrapper {
+    color: #ffffff;  /* Ensure digits are white */
+    text-align: center;
+}
+
+.flip-clock-divider .flip-clock-label {
+    color: #ffffff;  /* Labels like Hours, Minutes styled to be visible */
+}
+
+.flip-clock-dot {
+    background: #ffffff;
+}

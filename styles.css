@@ -9,6 +9,11 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
 }
+/* Additional styling */
+.clock {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
 
 #your-clock {
     margin: 20px;

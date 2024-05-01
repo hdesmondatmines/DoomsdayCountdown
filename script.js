@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('your-clock').textContent = "Time's up!";
             return;
         }
-
+ 
         const years = Math.floor(totalSeconds / (3600 * 24 * 365));
         let remainder = totalSeconds % (3600 * 24 * 365);
 

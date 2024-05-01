@@ -5,27 +5,29 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #0e0e10; /* Dark background for a dramatic look */
-    color: #ffffff; /* White text for contrast */
+    color: #ffffff; /* Ensures text is white for contrast */
     font-family: Arial, sans-serif;
     text-align: center;
 }
 
 #your-clock {
-    font-size: 24px;
-    color: #ff6347; /* Red color for emphasis */
+    font-size: 28px; /* Larger font size for better visibility */
+    color: #ff6347; /* Bright red for the countdown for emphasis and clarity */
     padding: 20px;
     margin: 20px;
-    border: 1px solid #fff; /* Adds a border to make the clock visible */
+    border: 2px solid #ffffff; /* White border to highlight the clock area */
 }
 
 .title {
-    font-size: 28px;
+    font-size: 32px; /* Slightly larger to emphasize title */
     margin-bottom: 10px;
+    color: #9acd32; /* A vibrant green-yellow color for title */
 }
 
 .name {
     font-size: 20px;
     margin-bottom: 20px;
+    color: #c0c0c0; /* Silver color for a subtle but readable name display */
 }
 
 .description {
@@ -34,4 +36,5 @@ body {
     margin-top: 20px;
     font-size: 16px;
     line-height: 1.4;
+    color: #dcdcdc; /* Light gray for readability */
 }

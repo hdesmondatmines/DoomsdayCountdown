@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
-    console.log("Document loaded. Setting up the countdown.");
-
-    // Calculate the end time as 5 years from now
-    const endTime = new Date(Date.now() + 5 * 365 * 24 * 60 * 60 * 1000);
+    const baseTime = new Date(Date.now());
+    let endTime = new Date(baseTime.getTime() + 5 * 365 * 24 * 60 * 60 * 1000); // Initially set to 5 years from now
 
     function updateCountdown() {
         const now = new Date();
         const totalSeconds = Math.floor((endTime - now) / 1000);
 
         if (totalSeconds <= 0) {
-            document.getElementById('your-clock').textContent = "The countdown has finished!";
+            document.getElementById('your-clock').textContent = "Time's up!";
             return;
         }
 
@@ -27,10 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const formattedTime = `${years} years, ${days} days, ${hours}h:${minutes}m:${seconds}s`;
         document.getElementById('your-clock').textContent = formattedTime;
-
-        console.log("Countdown updated:", formattedTime);
     }
 
-    updateCountdown(); // Update immediately on load to ensure it's working
-    setInterval(updateCountdown, 1000); // Update the countdown every second
+    function randomizeCountdown() {
+        if (Math.random() < 0.1) { // 10% chance to trigger a random change
+            const randomYears = Math.floor(Math.random() * 201); // Random number between 0 and 200
+            endTime = new Date(baseTime.getTime() + randomYears * 365 * 24 * 60 * 60 * 1000);
+        }
+    }
+
+    setInterval(updateCountdown, 1000);
+    setInterval(randomizeCountdown, 5000); // Randomize every 5 seconds
 });

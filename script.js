@@ -11,7 +11,6 @@ $(document).ready(function() {
     clock.setTime(totalSeconds);
     clock.start();
 
-    // Randomize function adjusted for clarity
     function randomizeCountdown() {
         if (Math.random() < 0.05) {  // Adjusted probability to 5%
             let randomTime = Math.floor(Math.random() * totalSeconds);
